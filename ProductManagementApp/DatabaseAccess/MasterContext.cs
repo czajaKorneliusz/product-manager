@@ -1,26 +1,22 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+using ProductManagementApp.Models;
 
-namespace ProductManagementApp.Models
+namespace ProductManagementApp.DatabaseAccess
 {
-    public partial class MasterContext : DbContext
+    public class MasterContext : DbContext
     {
         public MasterContext()
         {
         }
 
-        public MasterContext(DbContextOptions<MasterContext> options)
+        public MasterContext(DbContextOptions options)
             : base(options)
         {
         }
 
         public virtual DbSet<Product> ProductTable { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
 
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,9 +27,7 @@ namespace ProductManagementApp.Models
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
             });
 
-            OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

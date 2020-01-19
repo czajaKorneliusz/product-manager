@@ -4,10 +4,11 @@ using ProductManagementApp.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProductManagementApp.DatabaseAccess;
 
 namespace ProductManagementApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -18,14 +19,14 @@ namespace ProductManagementApp.Controllers
             _context = context;
         }
 
-        // GET: api/Product
+        // GET: Product
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductTable()
         {
             return await _context.ProductTable.ToListAsync();
         }
 
-        // GET: api/Product/5
+        // GET: Product/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProductTable(int id)
         {
@@ -39,7 +40,7 @@ namespace ProductManagementApp.Controllers
             return product;
         }
 
-        // PUT: api/Product/5
+        // PUT: Product/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
@@ -94,11 +95,10 @@ namespace ProductManagementApp.Controllers
                 }
             }
 
-            CreatedAtAction("GetProductTable", new { id = product.Id }, product);
-            return product.Id;
+            return CreatedAtAction("GetProductTable", new { id = product.Id }, product.Id);
         }
 
-        // DELETE: api/Product/5
+        // DELETE: Product/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Product>> DeleteProductTable(int id)
         {

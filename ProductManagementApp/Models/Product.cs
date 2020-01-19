@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ProductManagementApp.Models
+﻿namespace ProductManagementApp.Models
 {
-    public partial class Product
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
