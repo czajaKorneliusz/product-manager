@@ -13,7 +13,7 @@ jobs:
       uses: actions/setup-dotnet@v1.4.0
       with:
         dotnet-version: 3.0.102
-    - run: dotnet build --unsupportedProjectAction=<ignore>
+    - run: dotnet restore
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
