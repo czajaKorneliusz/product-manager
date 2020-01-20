@@ -13,8 +13,7 @@ jobs:
       uses: actions/setup-dotnet@v1.4.0
       with:
         dotnet-version: 3.0.102
-    - name: .NET Core CLI
-      uses: baruchiro/github-actions@0.0.1
-    - run: dotnet restore
+    - run: dotnet build --unsupportedProjectAction=<error|warning|ignore>
+
     - name: Build with dotnet
       run: dotnet build --configuration Release
