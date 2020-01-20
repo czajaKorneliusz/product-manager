@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: linux 
+    runs-on: [windows-latest] 
 
     steps:
     - uses: actions/checkout@v1
@@ -19,7 +19,7 @@ jobs:
     #  run: msbuild /build --configuration Release
     
   release:
-    runs-on: linux
+    runs-on: [ubuntu-latest]
     steps:
       - name: GitHub Releases
         uses: fnkr/github-action-ghr@v1.2
