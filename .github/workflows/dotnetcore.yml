@@ -17,3 +17,10 @@ jobs:
 
     #- name: Build with dotnet
     #  run: msbuild /build --configuration Release
+    
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: GitHub Releases
+        uses: fnkr/github-action-ghr@v1.2
+        
