@@ -22,17 +22,10 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: Automatic Releases
-        uses: marvinpinto/action-automatic-releases@v0.2.2
-  			with:
-  			  repo_token: "${{ secrets.GITHUB_TOKEN }}"
-    		# Git tag (for automatic releases)
-    		     # aautomatic_release_tag: # optional
-    # Should this release be marked as a draft?
-             # draft: # optional
-    # Should this release be marked as a pre-release?
-    		#	prerelease: # optional, default is true
-    # Release title (for automatic releases)
-    		#	title: # optional
-    # Assets to upload to the release
-    		#	files: # optional
-        
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+         # automatic_release_tag: "latest"
+         # prerelease: false
+         # title: "Development Build"
+         
