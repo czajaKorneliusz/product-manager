@@ -13,7 +13,7 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
       with:
         dotnet-version: 3.0.102
-    - run: msbuild /restore
+    - run: msbuild /restore --configuration Release
 
-    - name: Build with dotnet
-      run: msbuild /build --configuration Release
+    #- name: Build with dotnet
+    #  run: msbuild /build --configuration Release
