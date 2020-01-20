@@ -1,0 +1,26 @@
+name: .NET Core
+
+on: [push]
+
+
+jobs:
+  build:
+
+    runs-on: [windows-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+      with:
+        dotnet-version: 3.0.102
+    - run: msbuild /restore /p:Configuration=Release
+
+   
+    - name: Automatic Releases
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+         automatic_release_tag: "latest"
+         # prerelease: false
+         # title: "Development Build"
