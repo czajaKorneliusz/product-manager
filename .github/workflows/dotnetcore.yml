@@ -18,14 +18,16 @@ jobs:
     #- name: Build with dotnet
     #  run: msbuild /build --configuration Release
     
-  release:
-    runs-on: [ubuntu-latest]
-    steps:
-      - name: Automatic Releases
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+  #release:
+ #   runs-on: [ubuntu-latest]
+    
+ #  steps:
+      
+    - name: Automatic Releases
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+         automatic_release_tag: "latest"
          # prerelease: false
          # title: "Development Build"
          
