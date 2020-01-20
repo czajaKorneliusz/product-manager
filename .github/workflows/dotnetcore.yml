@@ -16,10 +16,10 @@ jobs:
         dotnet-version: 3.0.102
     - run: msbuild /restore /p:Configuration=Release
 
-    
+      if: job.status != failure
   deploy:
     runs-on: [ubuntu-latest]
-    if: job.status != failure
+
     steps:
       
     - name: Automatic Releases
