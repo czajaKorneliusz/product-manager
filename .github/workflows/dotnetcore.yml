@@ -19,7 +19,7 @@ jobs:
     
   deploy:
     runs-on: [ubuntu-latest]
-    if: job.steps.<step id>.status != failure
+    if: job.status != failure
     steps:
       
     - name: Automatic Releases
